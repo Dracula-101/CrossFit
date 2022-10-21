@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-Color lightPurple = const Color(0xFFA6A6A6);
-Color mildPurple = const Color(0xFF512DA8);
-Color darkPurple = const Color(0xFF443C5B);
 Color lightRed = const Color(0xFFF9435A);
 Color darkRed = const Color(0xFFFD3141);
 Color brightRed = const Color(0xFFB00020);
@@ -16,3 +13,10 @@ Color dullGreyContrast = const Color(0x62FFFFFF);
 Color grey = const Color(0x66C8C8C8);
 Color white = const Color(0xFFFFFFFF);
 Color dullWhite = const Color(0xFFF5F5F5);
+Color dullWhiteContrast = const Color(0x1FFFFFFF);
+Color lightWhite = const Color(0xFFFAFAFA);
+Color lightWhiteContrast = const Color(0x1FFFFFFF);
+Color verylightWhite = const Color(0xFFF0F0F0);
+Color verylightWhiteContrast = const Color(0x1FFFFFFF);
+Color black = const Color(0xFF000000);
+
