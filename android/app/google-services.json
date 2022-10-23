@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "83717632575",
+    "project_id": "crossfit-7d09b",
+    "storage_bucket": "crossfit-7d09b.appspot.com"
+  },
+  "client": [{
+    "client_info": {
+      "mobilesdk_app_id": "1:83717632575:android:5b67205c3d844a46f83e8a",
+      "android_client_info": {
+        "package_name": "com.example.crossfit"
+      }
+    },
+    "oauth_client": [{
+        "client_id": "83717632575-urebs3c780v7urfi81qfev5o1u45u54u.apps.googleusercontent.com",
+        "client_type": 1,
+        "android_info": {
+          "package_name": "com.example.crossfit",
+          "certificate_hash": "c3b4d86cfaa2fdc185c7185650998d3cbf06f3c8"
+        }
+      },
+      {
+        "client_id": "83717632575-h1sv4d5rm940qlgopvmp8ib40kfu9lej.apps.googleusercontent.com",
+        "client_type": 3
+      }
+    ],
+    "api_key": [{
+      "current_key": "AIzaSyBNuIFFZjuJbOZKOYn1ajnbF_HAZpHW4OA"
+    }],
+    "services": {
+      "appinvite_service": {
+        "other_platform_oauth_client": [{
+          "client_id": "83717632575-h1sv4d5rm940qlgopvmp8ib40kfu9lej.apps.googleusercontent.com",
+          "client_type": 3
+        }]
+      }
+    }
+  }],
+  "configuration_version": "1"
+}
