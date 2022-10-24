@@ -622,6 +622,12 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   }
 
   @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: InkWell(
@@ -636,7 +642,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                 await Authentication.signInWithGoogle(context: context);
             if (user != null) {
               timer = Timer.periodic(const Duration(seconds: 3), (timer) async {
-                Get.offAllNamed(Routes.homePage);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, Routes.homePage, (route) => false);
               });
               setState(() {
                 isSignedIn = true;

@@ -1,5 +1,6 @@
 import 'package:crossfit/styles/colors.dart';
 import 'package:crossfit/styles/font_style.dart';
+import 'package:crossfit/utils/shared_preferences/shared_prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/route_manager.dart';
@@ -40,6 +41,7 @@ class _IntroPageState extends State<IntroPage> {
         ),
         renderDoneBtn: GestureDetector(
           onTap: () {
+            sharedPrefs.setBool('firstEntry', true);
             Get.offAllNamed(Routes.profileSetup);
           },
           child: Row(

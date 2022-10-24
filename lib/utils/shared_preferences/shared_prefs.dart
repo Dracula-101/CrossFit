@@ -13,8 +13,16 @@ class SharedPrefs {
     return sharedPreferences!.setString(key, value);
   }
 
+  Future<bool> setBool(String key, bool value) async {
+    return sharedPreferences!.setBool(key, value);
+  }
+
   Future<String> getString(String key) async {
     return sharedPreferences!.getString(key) ?? '';
+  }
+
+  Future<bool> getBool(String key) async {
+    return sharedPreferences!.getBool(key) ?? false;
   }
 
   //set user details
