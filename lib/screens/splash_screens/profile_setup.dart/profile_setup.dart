@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:crossfit/animations/custom_animations.dart';
 import 'package:crossfit/services/auth.dart';
 import 'package:crossfit/utils/shared_preferences/shared_prefs.dart';
 import 'package:crossfit/utils/toasts.dart';
@@ -13,7 +14,7 @@ import 'package:crossfit/styles/styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 
-import '../../config/routes.dart';
+import '../../../config/routes.dart';
 
 class ProfileSetup extends StatefulWidget {
   const ProfileSetup({super.key});
@@ -720,299 +721,259 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
             ? ListView(
                 padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
                 children: [
-                  AnimationConfiguration.staggeredList(
+                  slideAnimation(
                     position: 0,
-                    delay: Duration(milliseconds: delay),
-                    duration: Duration(milliseconds: delay),
-                    child: SlideAnimation(
-                      verticalOffset: 30.0,
-                      child: FadeInAnimation(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Almost There!',
-                              style: BoldText().boldVeryLargeText5,
-                            ),
-                            Text(
-                              'Sign up your email through google in order to continue',
-                              style: LightText().lightSmallText,
-                            ),
-                          ],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Almost There!',
+                          style: BoldText().boldVeryLargeText5,
                         ),
-                      ),
-                    ),
-                  ),
-                  AnimationConfiguration.staggeredList(
-                    position: 1,
-                    delay: Duration(milliseconds: delay),
-                    duration: Duration(milliseconds: delay),
-                    child: SlideAnimation(
-                      verticalOffset: 30.0,
-                      child: FadeInAnimation(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Your details',
-                                style: LightText().lightVeryLargeText1,
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Name: ',
-                                      style: BoldText().boldLargeText.copyWith(
-                                            color: dullWhite,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: user?.name,
-                                      style:
-                                          LightText().lightMediumText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Age: ',
-                                      style: BoldText().boldLargeText.copyWith(
-                                            color: dullWhite,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: user?.age.toString(),
-                                      style:
-                                          LightText().lightMediumText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Gender: ',
-                                      style: BoldText().boldLargeText.copyWith(
-                                            color: dullWhite,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: user?.gender,
-                                      style:
-                                          LightText().lightMediumText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  AnimationConfiguration.staggeredList(
-                    position: 3,
-                    delay: Duration(milliseconds: delay),
-                    duration: Duration(milliseconds: delay),
-                    child: SlideAnimation(
-                      verticalOffset: 30.0,
-                      child: FadeInAnimation(
-                          child: RichText(
-                        text: TextSpan(
-                          text: 'By signing up, you agree to our ',
+                        Text(
+                          'Sign up your email through google in order to continue',
                           style: LightText().lightSmallText,
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'Terms of Service',
-                              style: LightText().lightSmallText.copyWith(
-                                    color: Colors.white,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                            ),
-                            TextSpan(
-                              text: ' and ',
-                              style: LightText().lightSmallText,
-                            ),
-                            TextSpan(
-                              text: 'Privacy Policy',
-                              style: LightText().lightSmallText.copyWith(
-                                    color: Colors.white,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                            ),
-                          ],
                         ),
-                      )),
+                      ],
                     ),
                   ),
+                  slideAnimation(
+                    position: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Your details',
+                            style: LightText().lightVeryLargeText1,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Name: ',
+                                  style: BoldText().boldLargeText.copyWith(
+                                        color: dullWhite,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: user?.name,
+                                  style: LightText().lightMediumText.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Age: ',
+                                  style: BoldText().boldLargeText.copyWith(
+                                        color: dullWhite,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: user?.age.toString(),
+                                  style: LightText().lightMediumText.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Gender: ',
+                                  style: BoldText().boldLargeText.copyWith(
+                                        color: dullWhite,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: user?.gender,
+                                  style: LightText().lightMediumText.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                     
+                  slideAnimation(
+                    position: 2,
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'By signing up, you agree to our ',
+                        style: LightText().lightSmallText,
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Terms of Service',
+                            style: LightText().lightSmallText.copyWith(
+                                  color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                ),
+                          ),
+                          TextSpan(
+                            text: ' and ',
+                            style: LightText().lightSmallText,
+                          ),
+                          TextSpan(
+                            text: 'Privacy Policy',
+                            style: LightText().lightSmallText.copyWith(
+                                  color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               )
             : ListView(
                 padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
                 children: [
-                  AnimationConfiguration.staggeredList(
-                    position: 0,
-                    delay: Duration(milliseconds: delay),
-                    duration: Duration(milliseconds: delay),
-                    child: SlideAnimation(
-                      verticalOffset: 30.0,
-                      child: FadeInAnimation(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Welcome ${signedInUser?.displayName}',
-                              style: BoldText().boldVeryLargeText5,
-                            ),
-                            Text(
-                              'You are now signed in with your google account',
-                              style: LightText().lightSmallText,
-                            ),
-                          ],
+                  slideAnimation(
+                    position: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Welcome ${signedInUser?.displayName}',
+                          style: BoldText().boldVeryLargeText5,
                         ),
-                      ),
+                        Text(
+                          'You are now signed in with your google account',
+                          style: LightText().lightSmallText,
+                        ),
+                      ],
                     ),
                   ),
-                  AnimationConfiguration.staggeredList(
-                    position: 1,
-                    delay: Duration(milliseconds: delay),
-                    duration: Duration(milliseconds: delay),
-                    child: SlideAnimation(
-                      verticalOffset: 30.0,
-                      child: FadeInAnimation(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Your details',
-                                style: LightText().lightVeryLargeText1,
-                              ),
-                              signedInUser?.photoURL != null
-                                  ? SizedBox(
-                                      height: 150,
-                                      width: 150,
-                                      child: ClipOval(
-                                        child: Material(
-                                          color: lightGrey,
-                                          child: Image.network(
-                                            signedInUser!.photoURL!,
-                                            fit: BoxFit.fitHeight,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : ClipOval(
-                                      child: Material(
-                                        color: lightGrey,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
-                                          child: Icon(
-                                            Icons.person,
-                                            size: 100,
-                                            color: lightGreyContrast,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Name: ',
-                                      style: BoldText().boldLargeText.copyWith(
-                                            color: dullWhite,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: user?.name,
-                                      style:
-                                          LightText().lightMediumText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Email: ',
-                                      style: BoldText().boldLargeText.copyWith(
-                                            color: dullWhite,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: signedInUser?.email,
-                                      style:
-                                          LightText().lightMediumText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Age: ',
-                                      style: BoldText().boldLargeText.copyWith(
-                                            color: dullWhite,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: user?.age.toString(),
-                                      style:
-                                          LightText().lightMediumText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Gender: ',
-                                      style: BoldText().boldLargeText.copyWith(
-                                            color: dullWhite,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: user?.gender,
-                                      style:
-                                          LightText().lightMediumText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                  slideAnimation(
+                    position: 5,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Your details',
+                            style: LightText().lightVeryLargeText1,
                           ),
-                        ),
+                          signedInUser?.photoURL != null
+                              ? SizedBox(
+                                  height: 150,
+                                  width: 150,
+                                  child: ClipOval(
+                                    child: Material(
+                                      color: lightGrey,
+                                      child: Image.network(
+                                        signedInUser!.photoURL!,
+                                        fit: BoxFit.fitHeight,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : ClipOval(
+                                  child: Material(
+                                    color: lightGrey,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Icon(
+                                        Icons.person,
+                                        size: 100,
+                                        color: lightGreyContrast,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Name: ',
+                                  style: BoldText().boldLargeText.copyWith(
+                                        color: dullWhite,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: user?.name,
+                                  style: LightText().lightMediumText.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Email: ',
+                                  style: BoldText().boldLargeText.copyWith(
+                                        color: dullWhite,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: signedInUser?.email,
+                                  style: LightText().lightMediumText.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Age: ',
+                                  style: BoldText().boldLargeText.copyWith(
+                                        color: dullWhite,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: user?.age.toString(),
+                                  style: LightText().lightMediumText.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Gender: ',
+                                  style: BoldText().boldLargeText.copyWith(
+                                        color: dullWhite,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: user?.gender,
+                                  style: LightText().lightMediumText.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
+                  ),   
                 ],
               ),
       ),

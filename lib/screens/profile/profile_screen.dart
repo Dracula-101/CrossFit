@@ -1,8 +1,10 @@
+import 'package:crossfit/animations/custom_animations.dart';
 import 'package:crossfit/config/routes.dart';
 import 'package:crossfit/styles/styles.dart';
 import 'package:crossfit/utils/custom_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/route_manager.dart';
 
@@ -61,22 +63,207 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
           ),
-          SliverAnimatedList(
-            initialItemCount: 10,
-            itemBuilder: (context, index, animation) {
-              return SlideTransition(
-                  position: animation.drive(
-                    Tween<Offset>(
-                      begin: const Offset(0, 1),
-                      end: Offset.zero,
-                    ).chain(
-                      CurveTween(
-                        curve: Curves.easeOut,
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    leftSlideAnimation(
+                      position: 0,
+                      child: modernCard(
+                        Container(
+                          constraints: BoxConstraints(
+                            minWidth: MediaQuery.of(context).size.width * 0.30,
+                          ),
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.dumbbell,
+                                color: white,
+                                size: 50,
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.width * 0.05,
+                              ),
+                              Text(
+                                'Workout History',
+                                style: NormalText().mediumText,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    rightSlideAnimation(
+                      position: 1,
+                      child: modernCard(
+                        Container(
+                          constraints: BoxConstraints(
+                            minWidth: MediaQuery.of(context).size.width * 0.30,
+                          ),
+                          child: Column(
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.bowlRice,
+                                size: 50,
+                                color: white,
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.width * 0.05,
+                              ),
+                              Text(
+                                'Meal Plans',
+                                style: NormalText().mediumText,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                leftSlideAnimation(
+                  position: 2,
+                  delay: 100,
+                  duration: 250,
+                  child: modernCard(
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.qrCodePage);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.qrcode,
+                                color: white,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.05,
+                              ),
+                              Text(
+                                'QR Scanner',
+                                style: NormalText().mediumText,
+                              ),
+                            ],
+                          ),
+                          RotatedBox(
+                              quarterTurns: 4,
+                              child: Container(
+                                color: white,
+                                height: 40,
+                                width: 1,
+                              )),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(Routes.barCodePage);
+                            },
+                            child: Row(
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.barcode,
+                                  color: white,
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.05,
+                                ),
+                                Text(
+                                  'Bar Code',
+                                  style: NormalText().mediumText,
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.02,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  child: modernCard(Text('${index}')));
-            },
+                ),
+                rightSlideAnimation(
+                  position: 3,
+                  delay: 100,
+                  duration: 250,
+                  child: modernCard(
+                    Row(
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.fire,
+                          color: white,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        Text(
+                          'Calorie Manager',
+                          style: NormalText().mediumText,
+                        ),
+                      ],
+                    ),
+                    hasRowIcon: true,
+                  ),
+                ),
+                leftSlideAnimation(
+                  position: 4,
+                  delay: 100,
+                  duration: 250,
+                  child: modernCard(
+                    Row(
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.userCheck,
+                          color: white,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        Text(
+                          'Profile Info',
+                          style: NormalText().mediumText,
+                        ),
+                      ],
+                    ),
+                    hasRowIcon: true,
+                  ),
+                ),
+                rightSlideAnimation(
+                  position: 5,
+                  delay: 100,
+                  duration: 250,
+                  child: modernCard(
+                      Row(
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.android,
+                            color: white,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.05,
+                          ),
+                          Text(
+                            'App info',
+                            style: NormalText().mediumText,
+                          ),
+                        ],
+                      ),
+                      hasRowIcon: true, onTap: () {
+                    showAboutDialog(context: context);
+                  }),
+                ),
+              ],
+            ),
           ),
           SliverToBoxAdapter(
             child: GestureDetector(

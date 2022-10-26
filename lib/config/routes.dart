@@ -1,7 +1,9 @@
 // define routes
 import 'package:crossfit/screens/home_pages/home_page.dart';
 import 'package:crossfit/screens/profile/profile_screen.dart';
-import 'package:crossfit/screens/profile_setup.dart/profile_setup.dart';
+import 'package:crossfit/screens/scanner/bar_code_scanner.dart';
+import 'package:crossfit/screens/splash_screens/profile_setup.dart/profile_setup.dart';
+import 'package:crossfit/screens/scanner/qr_scanner.dart';
 import 'package:crossfit/screens/splash_screens/log_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:crossfit/screens/splash_screens/intro_page.dart';
@@ -14,6 +16,8 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/home': (context) => const MyHomePage(),
   '/profile': (context) => const ProfileScreen(),
   '/login': (context) => const LoginScreen(),
+  '/qrcode': (context) => const QrCodeScanner(),
+  '/barcode': (context) => const BarCodeScanner(),
 };
 String initialRoute = '/';
 
@@ -24,4 +28,6 @@ class Routes {
   static const String profileSetup = '/profile_setup';
   static const String profile = '/profile';
   static const String login = '/login';
+  static const String qrCodePage = '/qrcode';
+  static const String barCodePage = '/barcode';
 }
