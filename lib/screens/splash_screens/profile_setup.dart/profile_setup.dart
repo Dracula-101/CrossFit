@@ -878,6 +878,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                       child: Image.network(
                                         signedInUser!.photoURL!,
                                         fit: BoxFit.fitHeight,
+                                        cacheHeight: 150,
+                                        cacheWidth: 150,
                                       ),
                                     ),
                                   ),

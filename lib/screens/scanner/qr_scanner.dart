@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:crossfit/styles/font_style.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +68,7 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
       setState(() {
         result = scanData;
       });
+      log(result?.code ?? "Nothing");
     });
   }
 

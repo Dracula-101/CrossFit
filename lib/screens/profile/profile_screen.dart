@@ -23,7 +23,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         slivers: [
           SliverAppBar(
             pinned: true,
-            collapsedHeight: MediaQuery.of(context).size.height * 0.07,
+            collapsedHeight:
+                kToolbarHeight + MediaQuery.of(context).padding.top / 3,
             expandedHeight: MediaQuery.of(context).size.height * 0.3,
             actions: [
               IconButton(
@@ -49,10 +50,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                     tag: 'profile',
                     child: CircleAvatar(
-                      radius: 81,
+                      radius: 61,
                       backgroundColor: Colors.white,
                       child: CircleAvatar(
-                        radius: 80,
+                        radius: 60,
                         backgroundImage: NetworkImage(FirebaseAuth
                                 .instance.currentUser?.photoURL ??
                             'https://images.unsplash.com/photo-1610000000000-000000000000?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
@@ -73,24 +74,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: modernCard(
                         Container(
                           constraints: BoxConstraints(
-                            minWidth: MediaQuery.of(context).size.width * 0.30,
+                            maxWidth: MediaQuery.of(context).size.width * 0.3,
                           ),
                           alignment: Alignment.center,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Icon(
                                 FontAwesomeIcons.dumbbell,
                                 color: white,
-                                size: 50,
                               ),
                               SizedBox(
                                 height:
                                     MediaQuery.of(context).size.width * 0.05,
                               ),
                               Text(
-                                'Workout History',
+                                'Workout\nHistory',
                                 style: NormalText().mediumText,
                                 textAlign: TextAlign.center,
                               ),
@@ -104,13 +105,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: modernCard(
                         Container(
                           constraints: BoxConstraints(
-                            minWidth: MediaQuery.of(context).size.width * 0.30,
+                            maxWidth: MediaQuery.of(context).size.width * 0.3,
                           ),
-                          child: Column(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
                                 FontAwesomeIcons.bowlRice,
-                                size: 50,
                                 color: white,
                               ),
                               SizedBox(
@@ -118,7 +120,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     MediaQuery.of(context).size.width * 0.05,
                               ),
                               Text(
-                                'Meal Plans',
+                                'Meal\nPlans',
                                 style: NormalText().mediumText,
                               ),
                             ],

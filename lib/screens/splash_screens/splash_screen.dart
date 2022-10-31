@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.10,
                     ),
                     AnimationConfiguration.staggeredList(
                       position: 2,

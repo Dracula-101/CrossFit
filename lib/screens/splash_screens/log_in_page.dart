@@ -2,6 +2,7 @@ import 'package:crossfit/config/routes.dart';
 import 'package:crossfit/services/auth.dart';
 import 'package:crossfit/styles/styles.dart';
 import 'package:crossfit/utils/custom_widget.dart';
+import 'package:crossfit/utils/shared_preferences/shared_prefs.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -19,6 +20,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final int delay = 250;
   User? signedInUser;
   ValueNotifier<bool> loading = ValueNotifier<bool>(false);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
           } else {
             signedInUser =
                 await Authentication.signInWithGoogle(context: context);
+            if (!(await sharedPrefs.getBool('firstLogin'))) {
+              await sharedPrefs.setBool('firstLogin', false);
+            }
             if (signedInUser != null) {
               Get.offAllNamed(Routes.homePage);
             }
@@ -85,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 15),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -98,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: FadeInAnimation(
                       child: Container(
                           margin: EdgeInsets.only(
-                              top: MediaQuery.of(context).size.height * 0.05,
+                              top: MediaQuery.of(context).size.height * 0.02,
                               bottom: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,8 +148,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: Column(children: [
                                     Image.asset(
                                       'assets/images/exercise.png',
-                                      height: 80,
-                                      width: 80,
+                                      height: 79,
+                                      width: 79,
+                                      cacheHeight: 300,
+                                      cacheWidth: 300,
+                                      filterQuality: FilterQuality.high,
                                     ),
                                     const SizedBox(
                                       height: 10,
@@ -170,8 +184,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                     child: Column(children: [
                                       Image.asset(
                                         'assets/images/meal.png',
-                                        height: 80,
-                                        width: 80,
+                                        height: 79,
+                                        width: 79,
+                                        cacheHeight: 300,
+                                        cacheWidth: 300,
+                                        filterQuality: FilterQuality.high,
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -208,8 +225,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: Column(children: [
                                     Image.asset(
                                       'assets/images/metabolism.png',
-                                      height: 80,
-                                      width: 80,
+                                      height: 79,
+                                      width: 79,
+                                      cacheHeight: 300,
+                                      cacheWidth: 300,
+                                      filterQuality: FilterQuality.high,
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -240,15 +260,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                         0.18,
                                     child: Column(children: [
                                       Image.asset(
-                                        'assets/images/qr-code.png',
-                                        height: 80,
-                                        width: 80,
+                                        'assets/images/dark-strava-fitbit.png',
+                                        height: 79,
+                                        width: 79,
+                                        cacheHeight: 300,
+                                        cacheWidth: 300,
+                                        filterQuality: FilterQuality.high,
                                       ),
                                       SizedBox(
                                         height: 10,
                                       ),
                                       Text(
-                                        'Find product details',
+                                        'Strava/Fitbit\nIntegration',
                                         style: LightText().lightMediumText,
                                       )
                                     ]),

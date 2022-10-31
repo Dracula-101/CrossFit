@@ -59,6 +59,10 @@ class BarCodeScannerState extends State<BarCodeScanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Barcode scan'),
+        toolbarHeight: MediaQuery.of(context).size.height * 0.07,
+      ),
       floatingActionButton: InkWell(
         splashColor: lightGrey,
         borderRadius: BorderRadius.circular(20),
@@ -104,7 +108,10 @@ class BarCodeScannerState extends State<BarCodeScanner> {
       body: Builder(
         builder: (BuildContext context) {
           return ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                bottom: MediaQuery.of(context).size.height * 0.1),
             children: [
               if (_scanBarcode == "Unknown" ||
                   _scanBarcode == "-1" ||
@@ -113,8 +120,11 @@ class BarCodeScannerState extends State<BarCodeScanner> {
                   children: [
                     slideAnimation(
                         position: 0,
-                        child: Lottie.asset('assets/lottie/barcode.json')),
-                    spacer(height: 30),
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        child: Lottie.asset('assets/lottie/barcode.json'),
+                      ),
+                    ),
                     slideAnimation(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -196,49 +206,60 @@ class BarCodeScannerState extends State<BarCodeScanner> {
                                       'Found a url: $_scanBarcode',
                                       style: NormalText().mediumText,
                                     )
-                                  : FutureBuilder(
-                                      future: barCodeModel,
-                                      builder: (context, snapshot) {
-                                        if (snapshot.hasData) {
-                                          if ((snapshot.data?.products
-                                                      ?.isEmpty ??
-                                                  false) ||
-                                              (snapshot.data?.products ==
-                                                  null)) {
-                                            return SizedBox(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.4,
-                                              child: Text(
-                                                'No product/s found',
-                                                style: BoldText()
-                                                    .boldVeryLargeText,
-                                              ),
-                                            );
-                                          } else {
-                                            return BarCodeDetails(
-                                                product: snapshot
-                                                    .data!.products!.first);
-                                          }
-                                        } else {
-                                          return SizedBox(
-                                            height: MediaQuery.of(context)
+                                  : Column(
+                                      children: [
+                                        FutureBuilder(
+                                          future: barCodeModel,
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              if ((snapshot.data?.products
+                                                          ?.isEmpty ??
+                                                      false) ||
+                                                  (snapshot.data?.products ==
+                                                      null)) {
+                                                return SizedBox(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.4,
+                                                  child: Text(
+                                                    'No product/s found',
+                                                    style: BoldText()
+                                                        .boldVeryLargeText,
+                                                  ),
+                                                );
+                                              } else {
+                                                return BarCodeDetails(
+                                                    product: snapshot
+                                                        .data!.products!.first);
+                                              }
+                                            } else {
+                                              return SizedBox(
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.5,
+                                                width: MediaQuery.of(context)
                                                     .size
-                                                    .height *
-                                                0.5,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            child: const Center(
-                                              child: CircularProgressIndicator(
-                                                strokeWidth: 2,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                      },
+                                                    .width,
+                                                child: const Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    strokeWidth: 2,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                        SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.1,
+                                        ),
+                                      ],
                                     )
                               : Text(
                                   'Couldn\'t find anything. Try scanning the camera with a stable hand or try cleaning the lens of the camera',

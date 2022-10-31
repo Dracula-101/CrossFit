@@ -1,4 +1,5 @@
 import 'package:crossfit/config/routes.dart';
+import 'package:crossfit/services/api_mangament.dart';
 import 'package:crossfit/styles/themes.dart';
 import 'package:crossfit/utils/shared_preferences/shared_prefs.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,7 +7,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-bool firstEntry = false; 
+
+bool firstEntry = false;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   sharedPrefs = SharedPrefs(await SharedPreferences.getInstance());
@@ -16,7 +18,6 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
   // This widget is the root of your application.
   @override
@@ -32,7 +33,6 @@ class MyApp extends StatelessWidget {
               ? Routes.homePage
               : initialRoute,
       themeMode: ThemeMode.dark,
-
     );
   }
 }
