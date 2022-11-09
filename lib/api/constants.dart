@@ -46,3 +46,18 @@ class MealPlanner {
 
   static String connectUser = "/users/connect";
 }
+
+class Strava {
+  static const String clientId = "93450";
+  static const String clientSecret = "dc0725bae2d83fa42f3bdb11bc9acc7f9470a9f4";
+  static const String redirectUrl = 'crossfit://strava';
+}
+
+class Fitbit {
+  static const String clientId = "238VSW";
+  static const String clientSecret = "125b296cc60aed88a9beed8d28cb3756";
+  static const String redirectUrl = 'crossfit://fitbit';
+  static const String callbackUrlScheme = 'crossfit';
+  static String baseUrl(String? userId) =>
+      'https://api.fitbit.com/1/user/$userId';
+}

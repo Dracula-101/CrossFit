@@ -61,6 +61,7 @@ Widget wideButton({
   required Function onPressed,
   required BuildContext context,
   BoxDecoration? decoration,
+  Color? textColor,
 }) {
   return InkWell(
     onTap: onPressed as void Function()?,
@@ -76,7 +77,84 @@ Widget wideButton({
             borderRadius: BorderRadius.circular(20),
           ),
       child: Text(text,
-          style: BoldText().boldMediumText.copyWith(color: Colors.black)),
+          style: BoldText()
+              .boldMediumText
+              .copyWith(color: textColor ?? Colors.black)),
     ),
   );
+}
+
+Widget chipButton({
+  required String text,
+  BoxDecoration? decoration,
+  TextStyle? textStyle,
+}) {
+  return FittedBox(
+    child: Container(
+      padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
+      alignment: Alignment.center,
+      decoration: decoration ??
+          BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+          ),
+      child: Text(text,
+          style: BoldText().boldSmallText.copyWith(color: Colors.black)),
+    ),
+  );
+}
+
+Widget spacedRow(Widget left, Widget right) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      left,
+      right,
+    ],
+  );
+}
+
+Widget spacedText(String left, String right) {
+  return spacedRow(
+    Text(
+      left,
+      style: BoldText().boldLargeText,
+    ),
+    Text(
+      right,
+      style: NormalText().mediumText,
+    ),
+  );
+}
+
+class NoLoginPage extends StatelessWidget {
+  final String title;
+  const NoLoginPage({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.3,
+            width: MediaQuery.of(context).size.height * 0.3,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: lightGreyContrast,
+            ),
+            child: Image.asset('assets/images/dark-strava-fitbit.png'),
+          ),
+          const SizedBox(height: 40),
+          Text(
+            title,
+            style: NormalText().veryLargeText,
+          ),
+        ],
+      ),
+    );
+  }
 }

@@ -16,6 +16,18 @@ class NormalText {
     fontFamily: "Nunito",
   );
 
+  TextStyle smallerText = const TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w200,
+    fontFamily: "Nunito",
+  );
+
+  TextStyle smallestText = const TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w200,
+    fontFamily: "Nunito",
+  );
+
 // medium text
 
   TextStyle mediumText = const TextStyle(
@@ -117,19 +129,19 @@ class LightText {
 
   TextStyle lightVeryLargeText1 = const TextStyle(
     fontSize: 26,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w200,
     fontFamily: "Nunito",
   );
 
   TextStyle lightVeryLargeText2 = const TextStyle(
     fontSize: 30,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w200,
     fontFamily: "Nunito",
   );
 
   TextStyle lightVeryLargeText3 = const TextStyle(
     fontSize: 35,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w200,
     fontFamily: "Nunito",
   );
 }

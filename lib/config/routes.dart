@@ -1,5 +1,8 @@
 // define routes
 import 'package:crossfit/screens/home_pages/home_page.dart';
+import 'package:crossfit/screens/home_pages/third-party/fitbit_page.dart';
+import 'package:crossfit/screens/home_pages/third-party/strava_details.dart';
+import 'package:crossfit/screens/home_pages/third-party/strava_page.dart';
 import 'package:crossfit/screens/profile/profile_screen.dart';
 import 'package:crossfit/screens/scanner/bar_code_scanner.dart';
 import 'package:crossfit/screens/splash_screens/profile_setup.dart/profile_setup.dart';
@@ -18,6 +21,8 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/login': (context) => const LoginScreen(),
   '/qrcode': (context) => const QrCodeScanner(),
   '/barcode': (context) => const BarCodeScanner(),
+  '/strava': (context) => const StravaPage(),
+  '/fitbit': (context) => const FitbitPage(),
 };
 String initialRoute = '/';
 
@@ -30,4 +35,6 @@ class Routes {
   static const String login = '/login';
   static const String qrCodePage = '/qrcode';
   static const String barCodePage = '/barcode';
+  static const String strava = '/strava';
+  static const String fitbit = '/fitbit';
 }

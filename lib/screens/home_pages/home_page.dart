@@ -99,10 +99,7 @@ class _MyHomePageState extends State<MyHomePage>
               body: ValueListenableBuilder<int>(
                 valueListenable: selectedIndex,
                 builder: (context, value, child) {
-                  return IndexedStack(
-                    index: value,
-                    children: pages,
-                  );
+                  return pages[value];
                 },
               ),
             );
