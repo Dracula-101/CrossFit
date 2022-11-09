@@ -1,5 +1,6 @@
 import 'package:crossfit/animations/custom_animations.dart';
 import 'package:crossfit/config/routes.dart';
+import 'package:crossfit/screens/home_pages/dashboard/programs.dart';
 import 'package:crossfit/styles/styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -89,26 +90,7 @@ class _DashBoardState extends State<DashBoard> {
               collapsedHeight: MediaQuery.of(context).size.height * 0.15,
               expandedHeight: MediaQuery.of(context).size.height * 0.3,
             ),
-            SliverAnimatedList(
-              initialItemCount: 20,
-              itemBuilder: (context, index, animation) {
-                return SlideTransition(
-                  position: animation.drive(
-                    Tween<Offset>(
-                      begin: const Offset(0, 1),
-                      end: Offset.zero,
-                    ).chain(
-                      CurveTween(
-                        curve: Curves.easeOut,
-                      ),
-                    ),
-                  ),
-                  child: ListTile(
-                    title: Text('Item $index'),
-                  ),
-                );
-              },
-            ),
+            SliverToBoxAdapter(child: Programs())
           ],
         ),
       ),

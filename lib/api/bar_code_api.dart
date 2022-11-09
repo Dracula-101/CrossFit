@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 class BarCodeAPI {
   static const String BASE_URL = "https://api.barcodelookup.com";
   static const List<String> API_KEY = [
+    "y2eb3z4g0vsath2vu0oe3ziiowha7s",
     "hfwgtyjha3vswd7gc77j64phhp3vsg",
     "dtkw8m5szufoyy57ep7rx1uhxot2rr",
     "93blda41yczb7xofy9rm6rigu5kbmk",

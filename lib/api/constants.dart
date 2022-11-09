@@ -43,8 +43,11 @@ class MealPlanner {
     "d8905056f5f34351bf953b33a8964733",
     "d8856840f0b443d6b3d0d19dec1dfd27"
   ];
-
+  static String noImage =
+      "https://www.gracekennedybelize.com/wp-content/uploads/2019/04/recipe-image-needed.png";
+  static var headers = {'x-api-key': apiKey.first};
   static String connectUser = "/users/connect";
+  static String generateMealPlan = "/mealplanner/generate";
 }
 
 class Strava {

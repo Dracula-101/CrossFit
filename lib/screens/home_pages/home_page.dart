@@ -1,4 +1,4 @@
-import 'package:crossfit/screens/home_pages/dashboard.dart';
+import 'package:crossfit/screens/home_pages/dashboard/dashboard.dart';
 import 'package:crossfit/screens/home_pages/meal_planner/meal_planner.dart';
 import 'package:crossfit/screens/home_pages/third-party/third_party.dart';
 import 'package:crossfit/screens/splash_screens/log_in_page.dart';
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   List<Widget> pages = const [
     DashBoard(),
-    MealPlanner(),
+    MealPlannerPage(),
     StravaFitbit(),
   ];
 

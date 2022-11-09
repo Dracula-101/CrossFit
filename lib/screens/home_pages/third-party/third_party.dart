@@ -176,10 +176,10 @@ class _StravaFitbitState extends State<StravaFitbit> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Icon(
-                                    snapshot.data != null
+                                    (snapshot.data ?? false)
                                         ? FontAwesomeIcons.circleCheck
                                         : FontAwesomeIcons.circleXmark,
-                                    color: snapshot.data != null
+                                    color: (snapshot.data ?? false)
                                         ? Colors.greenAccent
                                         : Colors.redAccent,
                                   ),
@@ -187,7 +187,7 @@ class _StravaFitbitState extends State<StravaFitbit> {
                                     width: 5,
                                   ),
                                   Text(
-                                    snapshot.data != null
+                                    (snapshot.data ?? false)
                                         ? 'Connected'
                                         : 'Not Connected',
                                     style: NormalText().normalText,

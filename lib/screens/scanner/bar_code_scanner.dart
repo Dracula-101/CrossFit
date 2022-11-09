@@ -59,10 +59,6 @@ class BarCodeScannerState extends State<BarCodeScanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Barcode scan'),
-        toolbarHeight: MediaQuery.of(context).size.height * 0.07,
-      ),
       floatingActionButton: InkWell(
         splashColor: lightGrey,
         borderRadius: BorderRadius.circular(20),

@@ -222,8 +222,14 @@ class ApiRequest<T> {
   Future<dynamic> sendGetRequest() async {
     try {
       ApiManagement.add(this);
+      String query;
+      if (queryParameters != null) {
+        query = Uri(queryParameters: queryParameters).query;
+      } else {
+        query = '';
+      }
       final response = await http.get(
-        Uri.parse(baseUrl + path),
+        Uri.parse('$baseUrl$path?$query'),
         headers: headers,
       );
       log('GET REQUEST: ${response.statusCode}');

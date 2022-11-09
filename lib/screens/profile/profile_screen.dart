@@ -91,13 +91,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     MediaQuery.of(context).size.width * 0.05,
                               ),
                               Text(
-                                'Workout\nHistory',
+                                'Workout\nInfo',
                                 style: NormalText().mediumText,
                                 textAlign: TextAlign.center,
                               ),
                             ],
                           ),
                         ),
+                        onTap: () {
+                          Get.toNamed(Routes.results);
+                        },
                       ),
                     ),
                     rightSlideAnimation(

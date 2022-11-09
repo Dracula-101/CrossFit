@@ -158,6 +158,7 @@ class _FitbitPageState extends State<FitbitPage> {
         future: _futureAccountData,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            print(snapshot.data);
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -273,6 +274,7 @@ class _FitbitPageState extends State<FitbitPage> {
                 ) {
                   return Container(
                     width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     padding: const EdgeInsets.only(top: 5, bottom: 15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
