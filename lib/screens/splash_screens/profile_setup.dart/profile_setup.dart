@@ -7,7 +7,6 @@ import 'package:crossfit/utils/toasts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:crossfit/styles/styles.dart';
@@ -99,6 +98,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: InkWell(
+        key: const Key('save'),
         onTap: () async {
           loading.value = true;
           // remove focus
@@ -200,6 +200,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                       child: Column(
                         children: [
                           TextFormField(
+                            key: const Key('name'),
                             controller: _nameController,
                             decoration:
                                 inputDecoration('Name', Icons.person, null),
@@ -221,6 +222,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                           ),
                           spacer(20),
                           TextFormField(
+                            key: const Key('age'),
                             controller: _ageController,
                             decoration:
                                 inputDecoration('Age', Icons.person, null),
@@ -240,6 +242,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                           ),
                           spacer(20),
                           TextFormField(
+                            key: const Key('height'),
                             controller: _heightController,
                             decoration: inputDecoration(
                                 'Height (cms)', Icons.person, null),
@@ -259,6 +262,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                           ),
                           spacer(20),
                           TextFormField(
+                            key: const Key('weight'),
                             controller: _weightController,
                             decoration: inputDecoration(
                                 'Weight (kg)', Icons.person, null),

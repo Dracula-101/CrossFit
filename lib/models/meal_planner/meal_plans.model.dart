@@ -63,6 +63,13 @@ class Meals {
     data['sourceUrl'] = sourceUrl;
     return data;
   }
+
+  //get id
+  int getId() {
+    return id!;
+  }
+
+
 }
 
 class Nutrients {
@@ -88,6 +95,26 @@ class Nutrients {
     data['protein'] = protein;
     return data;
   }
+  //get calories
+  double getCalories() {
+    return calories!;
+  }
+
+  //get carbohydrates
+  double getCarbohydrates() {
+    return carbohydrates!;
+  }
+
+  //get fat
+  double getFats() {
+    return fat!;
+  }
+
+  //get protein
+  double getProteins() {
+    return protein!;
+  }
+
 }
 
 class MealTemplateWeek {

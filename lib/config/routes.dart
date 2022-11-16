@@ -2,7 +2,6 @@
 import 'package:crossfit/screens/home_pages/dashboard/Results.dart';
 import 'package:crossfit/screens/home_pages/home_page.dart';
 import 'package:crossfit/screens/home_pages/third-party/fitbit_page.dart';
-import 'package:crossfit/screens/home_pages/third-party/strava_details.dart';
 import 'package:crossfit/screens/home_pages/third-party/strava_page.dart';
 import 'package:crossfit/screens/profile/profile_screen.dart';
 import 'package:crossfit/screens/scanner/bar_code_scanner.dart';
@@ -41,3 +40,8 @@ class Routes {
   static const String fitbit = '/fitbit';
   static const String results = '/results';
 }
+
+Map<String, Widget Function(BuildContext)> testRoutes = {
+  '/': (context) => const IntroPage(),
+  '/profile_setup': (context) => const ProfileSetup(),
+};

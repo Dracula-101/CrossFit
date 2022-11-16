@@ -36,6 +36,10 @@ class SharedPrefs {
     return LocalUser.fromJson(jsonDecode(user));
   }
 
+  Future<bool> clear() async {
+    return sharedPreferences!.clear();
+  }
+
   Future<bool> setOtherDetails(String gender, String location) async {
     String user = sharedPreferences!.getString('user') ?? '';
     LocalUser userDetails = LocalUser.fromJson(jsonDecode(user));

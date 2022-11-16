@@ -1,5 +1,4 @@
 import 'package:crossfit/config/routes.dart';
-import 'package:crossfit/services/api_mangament.dart';
 import 'package:crossfit/styles/themes.dart';
 import 'package:crossfit/utils/shared_preferences/shared_prefs.dart';
 import 'package:firebase_auth/firebase_auth.dart';

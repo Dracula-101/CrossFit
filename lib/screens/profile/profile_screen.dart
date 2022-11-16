@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                '${FirebaseAuth.instance.currentUser!.displayName}',
+                FirebaseAuth.instance.currentUser?.displayName ?? '',
               ),
               centerTitle: true,
               background: Container(
@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         radius: 60,
                         backgroundImage: NetworkImage(FirebaseAuth
                                 .instance.currentUser?.photoURL ??
-                            'https://images.unsplash.com/photo-1610000000000-000000000000?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                            'https://cdn-icons-png.flaticon.com/512/17/17004.png'),
                       ),
                     ),
                   ),

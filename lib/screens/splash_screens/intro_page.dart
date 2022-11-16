@@ -22,6 +22,7 @@ class _IntroPageState extends State<IntroPage> {
       body: SafeArea(
           child: IntroSlider(
         renderNextBtn: Row(
+          key: const Key('next'),
           children: const [
             Text(
               'Next',
@@ -40,6 +41,7 @@ class _IntroPageState extends State<IntroPage> {
           color: Colors.white,
         ),
         renderDoneBtn: GestureDetector(
+          key: const Key('done'),
           onTap: () {
             sharedPrefs.setBool('firstEntry', true);
             Get.offAllNamed(Routes.profileSetup);

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:crossfit/utils/shared_preferences/shared_prefs.dart';
 
-import '../../screens/home_pages/meal_planner/meal_planner.dart';
 
 class MealPlannerSaver {
   static const String _mealPlannerKey = 'meal_planner';
